@@ -120,13 +120,39 @@ app.post('/api/apply', (req, res) => {
       const subject = `New Candidate Application: ${name} (${interest})`;
       const textContent = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nInterest: ${interest}\nAbout: ${about}\nWhat Built: ${whatBuilt}`;
       const htmlContent = `
-        <div style="font-family: Arial; padding: 20px;">
-          <h2>ARCEN Candidate Application</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Interest:</strong> ${interest}</p>
-          <p><strong>About:</strong> ${about}</p>
-          <p><strong>What Built:</strong> ${whatBuilt}</p>
+        <div style="font-family: Arial, sans-serif; background-color: #f2efe6; padding: 32px; color: #11120f;">
+          <div style="max-width: 620px; margin: 0 auto; background: #ffffff; padding: 36px; border: 2px solid #11120f;">
+            <div style="border-bottom: 2px solid #11120f; padding-bottom: 16px; margin-bottom: 24px;">
+              <h1 style="font-family: monospace; font-size: 24px; margin: 0; text-transform: uppercase;">ARCEN</h1>
+              <span style="font-family: monospace; font-size: 12px; color: #77766f; letter-spacing: 2px;">CANDIDATE APPLICATION</span>
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 24px;">
+              <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px 0; font-weight: bold; width: 140px;">Candidate Name:</td><td>${name}</td></tr>
+              <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px 0; font-weight: bold;">Email:</td><td><a href="mailto:${email}" style="color: #d85b46; font-weight: bold;">${email}</a></td></tr>
+              <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px 0; font-weight: bold;">Phone:</td><td>${phone || 'N/A'}</td></tr>
+              <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px 0; font-weight: bold;">Area of Interest:</td><td><span style="background: #11120f; color: #f2efe6; padding: 3px 8px; font-family: monospace; font-size: 12px;">${interest}</span></td></tr>
+              <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px 0; font-weight: bold;">Portfolio / Links:</td><td>${portfolio ? `<a href="${portfolio}">${portfolio}</a>` : 'N/A'}</td></tr>
+            </table>
+
+            <div style="margin-bottom: 20px;">
+              <h4 style="font-family: monospace; font-size: 12px; color: #77766f; uppercase; margin-bottom: 6px;">ABOUT THE CANDIDATE:</h4>
+              <div style="background: #f8f7f3; padding: 14px; border-left: 3px solid #11120f; font-size: 14px; white-space: pre-wrap;">${about || 'N/A'}</div>
+            </div>
+
+            <div style="margin-bottom: 24px;">
+              <h4 style="font-family: monospace; font-size: 12px; color: #77766f; uppercase; margin-bottom: 6px;">WHAT THEY HAVE BUILT:</h4>
+              <div style="background: #f8f7f3; padding: 14px; border-left: 3px solid #d85b46; font-size: 14px; white-space: pre-wrap;">${whatBuilt || 'N/A'}</div>
+            </div>
+
+            <div style="background: #11120f; color: #f2efe6; padding: 14px; font-family: monospace; font-size: 13px; display: flex; align-items: center; justify-between: space-between;">
+              <span>📎 RESUME ATTACHMENT:</span>
+              <strong style="color: #d85b46;">${req.file ? `Attached (${resumeFileName})` : 'No file attached'}</strong>
+            </div>
+
+            <hr style="margin-top: 32px; border: none; border-top: 1px solid #ddd;" />
+            <p style="font-size: 11px; color: #77766f; font-family: monospace; text-align: center; margin-top: 16px;">ARCEN RECRUITMENT SYSTEM — ${new Date().toISOString()}</p>
+          </div>
         </div>
       `;
 
@@ -147,7 +173,24 @@ app.post('/api/contact', async (req, res) => {
 
     const emailSubject = `New Contact Form Message: ${subject || 'Inquiry'} from ${name}`;
     const textContent = `From: ${name} (${email})\nSubject: ${subject}\nMessage:\n${message}`;
-    const htmlContent = `<div style="font-family: Arial; padding: 20px;"><h3>Contact Inquiry from ${name} (${email})</h3><p>${message}</p></div>`;
+    const htmlContent = ` <div style="font-family: Arial, sans-serif; background-color: #f2efe6; padding: 32px; color: #11120f;">
+        <div style="max-width: 620px; margin: 0 auto; background: #ffffff; padding: 36px; border: 2px solid #11120f;">
+          <div style="border-bottom: 2px solid #11120f; padding-bottom: 16px; margin-bottom: 24px;">
+            <h1 style="font-family: monospace; font-size: 24px; margin: 0; text-transform: uppercase;">ARCEN</h1>
+            <span style="font-family: monospace; font-size: 12px; color: #77766f; letter-spacing: 2px;">CONTACT INQUIRY</span>
+          </div>
+
+          <p style="font-size: 14px;"><strong>From:</strong> ${name} (&lt;<a href="mailto:${email}" style="color: #d85b46;">${email}</a>&gt;)</p>
+          <p style="font-size: 14px;"><strong>Subject:</strong> ${subject || 'General Inquiry'}</p>
+
+          <div style="margin-top: 20px; background: #f8f7f3; padding: 18px; border-left: 3px solid #11120f; font-size: 14px; white-space: pre-wrap;">
+            ${message}
+          </div>
+
+          <hr style="margin-top: 32px; border: none; border-top: 1px solid #ddd;" />
+          <p style="font-size: 11px; color: #77766f; font-family: monospace; text-align: center; margin-top: 16px;">ARCEN CONTACT SYSTEM — ${new Date().toISOString()}</p>
+        </div>
+      </div>`;
 
     await sendNotificationEmail({ subject: emailSubject, htmlContent, textContent });
     return res.status(200).json({ success: true, message: 'Thank you for contacting ARCEN!' });
