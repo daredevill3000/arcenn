@@ -109,16 +109,42 @@ app.post('/api/apply', (req, res) => {
       }
 
       let attachments = [];
+      let resumeFileName = 'None provided';
+
       if (req.file) {
+        const sanitizedFilename = req.file.originalname.replace(/[^a-zA-Z0-9_.-]/g, '_');
+        resumeFileName = sanitizedFilename;
         attachments.push({
-          filename: req.file.originalname.replace(/[^a-zA-Z0-9_.-]/g, '_'),
+          filename: sanitizedFilename,
           content: req.file.buffer,
           contentType: req.file.mimetype || 'application/pdf',
         });
       }
 
       const subject = `New Candidate Application: ${name} (${interest})`;
-      const textContent = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nInterest: ${interest}\nAbout: ${about}\nWhat Built: ${whatBuilt}`;
+      const textContent = `
+ARCEN CANDIDATE APPLICATION
+
+CANDIDATE DETAILS:
+--------------------------------------------------
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Primary Interest: ${interest}
+Portfolio / Links: ${portfolio || 'Not provided'}
+
+ABOUT THE CANDIDATE:
+--------------------------------------------------
+${about || 'None provided'}
+
+WHAT THEY HAVE BUILT:
+--------------------------------------------------
+${whatBuilt || 'None provided'}
+
+RESUME STATUS:
+--------------------------------------------------
+${req.file ? `Attached as PDF file (${resumeFileName}, ${(req.file.size / 1024).toFixed(1)} KB)` : 'No PDF attached'}
+      `;
       const htmlContent = `
         <div style="font-family: Arial, sans-serif; background-color: #f2efe6; padding: 32px; color: #11120f;">
           <div style="max-width: 620px; margin: 0 auto; background: #ffffff; padding: 36px; border: 2px solid #11120f;">
