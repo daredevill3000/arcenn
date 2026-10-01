@@ -69,9 +69,9 @@ export default function Hero({ onOpenApply, isLoaded = true }) {
             transition={{ duration: 0.8, delay: 0.3, ease: easeArcen }}
             className="font-display font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.92] text-[#11120F]"
           >
-            BUILD WHAT <br />
+            WHERE DESIGN MEETS <br />
             <span className="text-[#11120F]/30 hover:text-[#11120F] transition-colors duration-500">
-              MATTERS
+              TECHNOLOGY
             </span>
             <span className="inline-block w-3.5 h-3.5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-[#D85B46] rounded-full ml-2 sm:ml-4 animate-coral-dot align-baseline" />
           </motion.h1>

@@ -9,8 +9,6 @@ import Projects from './components/Projects';
 import Careers from './components/Careers';
 import WhoWeAreLookingFor from './components/WhoWeAreLookingFor';
 import LifeAtArcen from './components/LifeAtArcen';
-import AboutArcen from './components/AboutArcen';
-import RecruitmentProcess from './components/RecruitmentProcess';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ApplicationFormModal from './components/ApplicationFormModal';
@@ -44,8 +42,6 @@ export default function App() {
         <Careers onOpenApply={handleOpenApply} />
         <WhoWeAreLookingFor />
         <LifeAtArcen />
-        <AboutArcen />
-        <RecruitmentProcess />
         <ContactSection onOpenApply={handleOpenApply} />
       </main>
 

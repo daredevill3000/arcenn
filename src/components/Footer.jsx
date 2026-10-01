@@ -31,6 +31,30 @@ export default function Footer() {
   return (
     <footer className="bg-[#171916] text-[#F2EFE6] pt-24 pb-12 border-t border-[#F2EFE6]/15 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
+        {/* Founder & Address Card */}
+        <div className="mb-12 sm:mb-16">
+          <Reveal direction="up" distance={16}>
+            <div className="border border-[#F2EFE6]/15 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 max-w-2xl">
+              {/* Avatar */}
+              <div className="shrink-0 w-16 h-16 rounded-full border border-[#F2EFE6]/20 overflow-hidden">
+                <img src="/123-modified.jpg" alt="Saish Kalghatgi" className="w-full h-full object-cover" />
+              </div>
+              {/* Info */}
+              <div className="space-y-1">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#D85B46] font-semibold block">
+                  // FOUNDER
+                </span>
+                <p className="font-display font-bold text-xl text-[#F2EFE6] tracking-tight">Saish Kalghatgi</p>
+                <p className="font-mono text-xs text-[#9E9D95]">Founder & Director, Facette&Co Pvt.Ltd</p>
+                <div className="flex items-center gap-2 pt-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D85B46] inline-block" />
+                  <span className="font-mono text-[11px] text-[#9E9D95] uppercase tracking-wider">Mumbai, India</span>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 pb-16 sm:pb-20 border-b border-[#F2EFE6]/15">
           {/* Logo & Headline */}
           <div className="lg:col-span-6 space-y-4">
@@ -103,7 +127,7 @@ export default function Footer() {
             © {new Date().getFullYear()} ARCEN TECHNOLOGY STUDIO. ALL RIGHTS RESERVED.
           </div>
           <div className="text-[#D85B46] font-semibold tracking-wider">
-            BUILD WHAT MATTERS.
+            WHERE DESIGN MEETS TECHNOLOGY.
           </div>
         </div>
       </div>
