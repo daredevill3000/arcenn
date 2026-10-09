@@ -45,7 +45,7 @@ export default function Footer() {
                   // FOUNDER
                 </span>
                 <p className="font-display font-bold text-xl text-[#F2EFE6] tracking-tight">Saish Kalghatgi</p>
-                <p className="font-mono text-xs text-[#9E9D95]">Founder & Director, Facette&Co Pvt.Ltd</p>
+                <p className="font-mono text-xs text-[#9E9D95]">Founder , Facette&Co Pvt.Ltd</p>
                 <div className="flex items-center gap-2 pt-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D85B46] inline-block" />
                   <span className="font-mono text-[11px] text-[#9E9D95] uppercase tracking-wider">Mumbai, India</span>
@@ -56,10 +56,19 @@ export default function Footer() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 pb-16 sm:pb-20 border-b border-[#F2EFE6]/15">
-          {/* Logo & Headline */}
+          {/* Logo & Headline with Brand Mark */}
           <div className="lg:col-span-6 space-y-4">
             <Reveal direction="up" distance={16}>
-              <a href="#" className="font-display font-bold text-4xl tracking-tighter block text-[#F2EFE6] group">
+              <a href="#" className="font-display font-bold text-4xl tracking-tighter flex items-center gap-3 text-[#F2EFE6] group w-fit">
+                {/* Brand Mark SVG */}
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 100 100" 
+                  className="w-10 h-10"
+                >
+                  <path d="M50 10 L85 90 L65 90 L50 55 L35 90 L15 90 Z" fill="#F2EFE6"/>
+                  <circle cx="78" cy="82" r="9" fill="#D85B46"/>
+                </svg>
                 <span>ARCEN</span>
                 <span className="text-[#D85B46] inline-block transition-transform duration-300 group-hover:scale-125">.</span>
               </a>

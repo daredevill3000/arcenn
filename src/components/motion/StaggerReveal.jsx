@@ -7,7 +7,7 @@ export function StaggerContainer({
   stagger = 0.08,
   delayChildren = 0,
   once = true,
-  threshold = 0.1,
+  threshold = 0,
   as = 'div',
   ...props
 }) {
@@ -31,7 +31,7 @@ export function StaggerContainer({
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: threshold }}
+      viewport={{ once, amount: threshold, margin: '0px 0px 150px 0px' }}
       {...props}
     >
       {children}

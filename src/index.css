@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --color-bg-primary: #F2EFE6;
+  --color-text-primary: #11120F;
+  --color-text-secondary: #77766F;
+  --color-bg-dark: #171916;
+  --color-text-dark-primary: #F2EFE6;
+  --color-text-dark-secondary: #9E9D95;
+  --color-accent-coral: #D85B46;
+  --color-ink: #11120F;
+  --color-graphite: #171916;
+  --color-slate: #77766F;
+}
+
 @layer base {
   :root {
     --bg-primary: #F2EFE6;
@@ -9,6 +25,9 @@
     --text-dark-primary: #F2EFE6;
     --text-dark-secondary: #9E9D95;
     --accent-coral: #D85B46;
+    --ink: #11120F;
+    --graphite: #171916;
+    --slate: #77766F;
     --border-subtle: rgba(17, 18, 15, 0.14);
     --border-dark-subtle: rgba(242, 239, 230, 0.14);
     --surface-subtle: rgba(17, 18, 15, 0.035);
@@ -32,11 +51,15 @@
 
   h1, h2, h3, h4, .font-display {
     font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    line-height: 1.1;
   }
 
   code, pre, .font-mono {
-    font-family: 'DM Mono', monospace;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -164,4 +187,40 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Dark Section Specific Styles */
+.dark-section {
+  background-color: #171916;
+  color: #F2EFE6;
+}
+
+.dark-section h1,
+.dark-section h2,
+.dark-section h3,
+.dark-section h4,
+.dark-section h5,
+.dark-section h6 {
+  color: #F2EFE6;
+}
+
+/* Technical Reference Labels */
+.tech-label {
+  font-family: 'JetBrains Mono', 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+
+/* System Status Indicator */
+.system-active::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #D85B46;
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: breathingDot 2.8s var(--ease-in-out-arcen) infinite;
 }

@@ -36,11 +36,9 @@ export default function Navbar({ onOpenApply }) {
 
   const navLinks = [
     { name: 'ABOUT', href: '#about', index: '01' },
-    { name: 'PROJECTS', href: '#projects', index: '02' },
-    { name: 'SERVICES', href: '#technology', index: '03' },
-    { name: 'PROCESS', href: '#process', index: '04' },
-    { name: 'CAREERS', href: '#careers', index: '—' },
-    { name: 'CONTACT', href: '#contact', index: '05' },
+    { name: 'RECRUITMENT', href: '#recruitment', index: '02' },
+    { name: 'MENTORSHIP', href: '#mentorship', index: '03' },
+    { name: 'CONTACT', href: '#contact', index: '04' },
   ];
 
   const handleNavClick = (e, href) => {
@@ -75,11 +73,20 @@ export default function Navbar({ onOpenApply }) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo with Brand Mark */}
           <a
             href="#"
-            className="font-display font-bold text-2xl tracking-tighter text-[#11120F] flex items-center gap-2 group cursor-pointer select-none"
+            className="font-display font-bold text-2xl tracking-tighter text-[#11120F] flex items-center gap-2.5 group cursor-pointer select-none"
           >
+            {/* Brand Mark SVG */}
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 100 100" 
+              className="w-7 h-7 sm:w-8 sm:h-8"
+            >
+              <path d="M50 10 L85 90 L65 90 L50 55 L35 90 L15 90 Z" fill="#11120F"/>
+              <circle cx="78" cy="82" r="9" fill="#D85B46"/>
+            </svg>
             <span>ARCEN</span>
             <span className="w-1.5 h-1.5 bg-[#D85B46] rounded-full transition-transform duration-300 group-hover:scale-150" />
           </a>
@@ -148,8 +155,17 @@ export default function Navbar({ onOpenApply }) {
                       setMobileMenuOpen(false);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="font-display font-bold text-2xl tracking-tighter text-[#11120F] flex items-center gap-2 cursor-pointer"
+                    className="font-display font-bold text-2xl tracking-tighter text-[#11120F] flex items-center gap-2.5 cursor-pointer"
                   >
+                    {/* Brand Mark SVG */}
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 100 100" 
+                      className="w-7 h-7"
+                    >
+                      <path d="M50 10 L85 90 L65 90 L50 55 L35 90 L15 90 Z" fill="#11120F"/>
+                      <circle cx="78" cy="82" r="9" fill="#D85B46"/>
+                    </svg>
                     <span>ARCEN</span>
                     <span className="w-1.5 h-1.5 bg-[#D85B46] rounded-full" />
                   </a>

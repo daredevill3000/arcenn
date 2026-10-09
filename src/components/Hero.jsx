@@ -27,6 +27,7 @@ export default function Hero({ onOpenApply, isLoaded = true }) {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="absolute top-8 left-8 sm:top-10 sm:left-10 font-mono text-[10px] text-[#77766F] hidden md:block select-none"
       >
+       
         + SYS_ACTIVE // REF. 2026.09
       </motion.div>
 
@@ -53,7 +54,7 @@ export default function Hero({ onOpenApply, isLoaded = true }) {
           </span>
           <span className="w-8 sm:w-12 h-[1px] bg-[#11120F]/20" />
           <span className="font-mono text-xs uppercase tracking-widest text-[#77766F] hidden sm:inline">
-            TECHNOLOGY • PEOPLE • REAL-WORLD IMPACT
+            FROM IMAGINATION TO CREATION
           </span>
         </motion.div>
 
@@ -69,12 +70,22 @@ export default function Hero({ onOpenApply, isLoaded = true }) {
             transition={{ duration: 0.8, delay: 0.3, ease: easeArcen }}
             className="font-display font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.92] text-[#11120F]"
           >
-            WHERE DESIGN MEETS <br />
+            Design Meets <br />
             <span className="text-[#11120F]/30 hover:text-[#11120F] transition-colors duration-500">
-              TECHNOLOGY
+              Technology
             </span>
             <span className="inline-block w-3.5 h-3.5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-[#D85B46] rounded-full ml-2 sm:ml-4 animate-coral-dot align-baseline" />
           </motion.h1>
+          
+          {/* Support Line */}
+          <motion.p
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.7, delay: 0.4, ease: easeArcen }}
+            className="font-mono text-sm sm:text-base uppercase tracking-widest text-[#77766F] mt-6"
+          >
+            From imagination to creation—without the gaps
+          </motion.p>
         </div>
 
         {/* Paragraph & Action Triggers */}
@@ -86,7 +97,7 @@ export default function Hero({ onOpenApply, isLoaded = true }) {
             className="lg:col-span-7"
           >
             <p className="text-lg sm:text-2xl text-[#11120F]/85 font-normal leading-relaxed max-w-2xl">
-              We bring together curious people, deep technical skills, and real-world problems to build technology that makes a difference.
+              The global jewelry market is valued at $350 billion, yet the design layer remains fragmented and inefficient. Brands spend ₹3,000 to ₹50,000 per design, often cycling through multiple revisions before arriving at something manufacturable. ARCEN is being built to solve this—using technology to translate customer intent into structured, production-ready outputs.
             </p>
           </motion.div>
 
@@ -97,18 +108,18 @@ export default function Hero({ onOpenApply, isLoaded = true }) {
             className="lg:col-span-5 flex flex-wrap items-center gap-4"
           >
             <AnimatedButton
-              onClick={() => scrollTo('#careers')}
+              onClick={() => scrollTo('#recruitment')}
               variant="primary"
               icon={ArrowUpRight}
             >
-              EXPLORE CAREERS
+              BUILD ARCEN WITH US
             </AnimatedButton>
 
             <AnimatedButton
-              onClick={() => scrollTo('#about')}
+              onClick={() => scrollTo('#mentorship')}
               variant="secondary"
             >
-              MEET ARCEN
+              JOIN THE MENTORSHIP COUNCIL
             </AnimatedButton>
           </motion.div>
         </div>

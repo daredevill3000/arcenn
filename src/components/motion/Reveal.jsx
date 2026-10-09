@@ -10,7 +10,7 @@ export default function Reveal({
   duration = 0.65,
   blur = true,
   once = true,
-  threshold = 0.1,
+  threshold = 0,
   as = 'div',
   ...props
 }) {
@@ -42,7 +42,7 @@ export default function Reveal({
         className={className}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once, amount: threshold }}
+        viewport={{ once, amount: threshold, margin: '0px 0px 150px 0px' }}
         transition={{ duration: 0.2, delay }}
         {...props}
       >
@@ -66,7 +66,7 @@ export default function Reveal({
         y: 0,
         filter: 'blur(0px)',
       }}
-      viewport={{ once, amount: threshold }}
+      viewport={{ once, amount: threshold, margin: '0px 0px 150px 0px' }}
       transition={{
         duration,
         delay,

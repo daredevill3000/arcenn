@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Intro from './components/Intro';
-import TechnologyDomains from './components/TechnologyDomains';
-import HowWeThink from './components/HowWeThink';
-import Projects from './components/Projects';
-import Careers from './components/Careers';
-import WhoWeAreLookingFor from './components/WhoWeAreLookingFor';
-import LifeAtArcen from './components/LifeAtArcen';
+import AboutArcen from './components/AboutArcen';
+import RecruitmentSection from './components/RecruitmentSection';
+import MentorshipSection from './components/MentorshipSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ApplicationFormModal from './components/ApplicationFormModal';
@@ -35,13 +31,9 @@ export default function App() {
           onOpenApply={() => handleOpenApply('Backend Engineering')}
           isLoaded={!loading}
         />
-        <Intro />
-        <TechnologyDomains />
-        <HowWeThink />
-        <Projects />
-        <Careers onOpenApply={handleOpenApply} />
-        <WhoWeAreLookingFor />
-        <LifeAtArcen />
+        <AboutArcen />
+        <RecruitmentSection onOpenApply={handleOpenApply} />
+        <MentorshipSection />
         <ContactSection onOpenApply={handleOpenApply} />
       </main>
 

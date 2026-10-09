@@ -63,9 +63,9 @@ export default function ContactSection({ onOpenApply }) {
       className="py-28 sm:py-36 bg-[#F2EFE6] border-b border-[#11120F]/14 scroll-mt-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
-        {/* Section Header 05 / CONTACT */}
+        {/* Section Header 04 / CONTACT */}
         <SectionHeader
-          number="05"
+          number="04"
           label="CONTACT"
           meta="COMMUNICATION & INQUIRIES"
           title={

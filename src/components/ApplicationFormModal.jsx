@@ -271,13 +271,13 @@ export default function ApplicationFormModal({ isOpen, onClose, initialInterest 
                       className="input-line font-mono text-sm bg-transparent cursor-pointer"
                     >
                       <option value="Backend Engineering">Backend Engineering</option>
-                      <option value="Artificial Intelligence & Machine Learning">Artificial Intelligence & Machine Learning</option>
+                      <option value="AI/ML Research">AI/ML Research</option>
                       <option value="Computer Vision">Computer Vision</option>
-                      <option value="Mobile & Application Development">Mobile & Application Development</option>
+                      <option value="Mobile Development">Mobile Development</option>
                       <option value="DevOps & Cloud">DevOps & Cloud</option>
-                      <option value="AR & Spatial Technology">AR & Spatial Technology</option>
-                      <option value="CAD / 3D Technology">CAD / 3D Technology</option>
-                      <option value="Other">Other / Multi-disciplinary</option>
+                      <option value="AR/Spatial Computing">AR/Spatial Computing</option>
+                      <option value="CAD/3D Engineering">CAD/3D Engineering</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
