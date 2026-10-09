@@ -28,7 +28,7 @@ export default function Hero({ onOpenApply, isLoaded = true }) {
         className="absolute top-8 left-8 sm:top-10 sm:left-10 font-mono text-[10px] text-[#77766F] hidden md:block select-none"
       >
        
-        + SYS_ACTIVE // REF. 2026.09
+        
       </motion.div>
 
       <motion.div
